@@ -32,9 +32,7 @@ public class RESTExceptions {
     @GET
     @Path("/sqlexception")
     public List<? extends Product> throwSqlException() throws Exception {
-        return manager.createQuery(
-                String.format("SELECT * FROM bad_table", p.getName()), p.getClass())
-                .getResultList();
+        return manager.createQuery("SELECT name FROM Product WHERE ‘id=100'").getResultList();
     }
 
 }
